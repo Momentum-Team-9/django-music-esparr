@@ -1,0 +1,21 @@
+{
+    "_meta": {
+        "hash": {
+            "sha256": "ebc7ff6f072ff112e6e8b2f31d48c197b43085edd00dfcc0d5eb4505c5066c91"
+        },
+        "pipfile-spec": 6,
+        "requires": {
+            "Django_version": "2.2.4",
+            "python_version": "3.9"
+        },
+        "sources": [
+            {
+                "name": "pypi",
+                "url": "https://pypi.org/simple",
+                "verify_ssl": true
+            }
+        ]
+    },
+    "default": {},
+    "develop": {}
+}
