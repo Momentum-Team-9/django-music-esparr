@@ -1,37 +1,39 @@
-{% extends "base.html" %}
+{% extends "base.html" %} {% block content %}
+<section class="hero is-primary p-5">
+<h1 class="title is-white">All Albums</h1>
+<p class="subtitle is-white"><a href="{% url 'add_album' %}">Add Album</a></p>
+</section>
 
-{% block content %}
-<h1>All Albums</h1>
+    {% for album in albums %} 
+    <div class="container pt-5">
+        <div class="columns">
+            <div class="column center is-three-quarters-mobile is-two-thirds-tablet is-one-third-desktop">
+        
+            {% if album.title %}
+            <div class="card ">
+                <h4 class="title is-4 is-primary card-header p-3">{{ album.title }}</h4>
+                {% endif %} 
+                {% if album.artist %}
+                <div class="card-content">
+                    <div class="content">
+                        <div>By: {{ album.artist }}</div>
+                    {% endif %} 
+                    {% if album.year_released %}
+                        <div class="content">Released: {{ album.year_released }}</div>
+                    {% endif %}
+                    </div>
+                </div>
+                
 
-<p><a href="{% url 'add_album' %}">Add Album</a></p>
-
-<div class="flex flex-wrap">
-{% for album in albums %}
-{% if album.title %}
-<div class="">
-    <h2>{{ album.title }}</h2>
-    {% endif %}
-
-    {% if album.artist %}
-    <div class="flex">
-    <div class=""><i class=""></i></div>
-    <div>By: {{ album.artist }}</div>
+                <footer class="card-footer">
+                    <a href="{% url 'view_album' pk=album.pk %}" class="card-footer-item">View Album</a><br />
+                    <a href="{% url 'edit_album' pk=album.pk %}" class="card-footer-item">Edit Album</a><br />
+                    <a href="{% url 'delete_album' pk=album.pk %}" class="card-footer-item is-danger">Delete Album</a>
+                </footer>
+            </div>
+            </div>
+        </div>
     </div>
-    {% endif %}
-
-    {% if album.year_released %}
-    <div class="flex">
-    <div class=""><i class=""></i></div>
-    <div>Released: {{ album.year_released }}</div>
-    </div>
-    {% endif %}
-
-    <p>
-    <a href="{% url 'view_album' pk=album.pk %}">View Album</a><br> 
-    <a href="{% url 'edit_album' pk=album.pk %}">Edit Album</a><br>    
-    <a class="" href="{% url 'delete_album' pk=album.pk %}">Delete Album</a>
-    </p>
 </div>
 {% endfor %}
-</div>  
 {% endblock %}
