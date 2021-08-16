@@ -1,14 +1,19 @@
 {% extends "base.html" %}
 
 {% block content %}
-<h1>Edit Album</h1>
+<section class="hero is-primary p-5">
+  <h1 class="title is-white">Edit Album</h1>
+</section>
 
-<div>
-  <form action="{% url 'edit_album' pk=album.pk %}" method="POST">
+{% load bulma_tags %}
+{# Display a form #}
+
+<div class="control m-5">
+  <form class="form" action="{% url 'edit_album' pk=album.pk %}" method="POST">
     {% csrf_token %}
-    {{ form.as_p }}
-    <div>
-      <button type="submit">Update Album</button>
+    {{ form|bulma }}
+    <div class="field">
+      <button type="submit" class="button is-primary">Update Album</button>
     </div>
   </form>
 </div>

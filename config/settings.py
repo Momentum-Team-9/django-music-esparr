@@ -49,6 +49,7 @@ INSTALLED_APPS = [
     # third party apps
     'django_extensions',
     'debug_toolbar',
+    'bulma',
 
     # internal
     'albums'

@@ -1,15 +1,24 @@
 {% extends "base.html" %}
 
 {% block content %}
-<h1>Add Album</h1>
+<section class="hero is-primary p-5">
+    <h1 class="title is-white">Add Album</h1>
+    <p class="subtitle is-white"><a href="{% url 'list_albums' %}">Return to List of Albums</a></p>
+</section>
 
-<div>
-<form action="{% url 'add_album' %}" method="POST">
+{% load bulma_tags %}
+{# Display a form #}
+<div class="control m-5">
+    <form class="form" action="{% url 'add_album' %}" method="POST">
     {% csrf_token %}
-    {{ form.as_p }}
-    <div>
-        <button type="submit">Add Album</button>
-    </div>
+    {{ form|bulma }}
+    <div class="field">
+        <button type="submit" class="button is-primary">Add Album</button>
+      </div>
 </form>
 </div>
 {% endblock %}
+
+
+
+

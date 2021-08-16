@@ -1,16 +1,24 @@
 {% extends "base.html" %}
 
 {% block content %}
-<h1>Delete Album</h1>
 
-<div>
+<section class="hero is-primary p-5">
+    <h1 class="title is-white">Delete Album</h1>
+  </section>
+
+{% load bulma_tags %}
+{# Display a form #}
+<div class="m-5">
     <form action="{% url 'delete_album' pk=album.pk %}" method="POST">
         {% csrf_token %}
-        <p>Are you sure you want to delete the album {{ album.title }} by {{ album.artist }}?</p>
+        <p class="pt-5">Are you sure you want to delete the album {{ album.title }} by {{ album.artist }}?</p>
         <div>
-        <button type="submit">Delete Album</button><br />
-        <a href="{% url 'list_albums' %}">Cancel</a>
+        <div class="field">
+            <button type="submit" class="button is-primary mt-5">Delete Album</button>
+        </div>
+        <a href="{% url 'list_albums' %}" class="is-danger">Cancel</a>
         </div>
     </form>
 </div>
 {% endblock %}
+
