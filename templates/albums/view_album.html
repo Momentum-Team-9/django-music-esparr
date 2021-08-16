@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1>Album Info</h1>
+
+<p><a href="{% url 'list_albums' %}">Return to List of Albums</a></p>
+
+<div class="flex flex-wrap">
+    {% if album.title %}
+    <div class="">
+        <h2>{{ album.title }}</h2>
+        {% endif %}
+    
+        {% if album.artist %}
+        <div class="flex">
+        <div class=""><i class=""></i></div>
+        <div>By: {{ album.artist }}</div>
+        </div>
+        {% endif %}
+    
+        {% if album.year_released %}
+        <div class="flex">
+        <div class=""><i class=""></i></div>
+        <div>Released: {{ album.year_released }}</div>
+        </div>
+        {% endif %}
+
+<p>
+    <a href="{% url 'edit_album' pk=album.pk %}">Edit Album</a><br>    
+    <a class="" href="">Delete Album</a>
+</p>
+
+</div>
+{% endblock %}
+</div>

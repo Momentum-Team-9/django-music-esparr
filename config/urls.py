@@ -29,7 +29,9 @@ if settings.DEBUG:
     urlpatterns = [
         path('__debug__/', include(debug_toolbar.urls)),
         path('albums/add/', albums_views.add_album, name='add_album'),
-
+        path('albums/<int:pk>/', albums_views.view_album, name="view_album"),
+        path('albums/<int:pk>/edit/', albums_views.edit_album, name='edit_album'),
+        
         # For django versions before 2.0:
         # url(r'^__debug__/', include(debug_toolbar.urls)),
     ] + urlpatterns
