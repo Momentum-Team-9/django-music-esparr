@@ -27,7 +27,7 @@
 
 <p>
     <a href="{% url 'edit_album' pk=album.pk %}">Edit Album</a><br>    
-    <a class="" href="">Delete Album</a>
+    <a class="{% url 'delete_album' pk=album.pk %}" href="">Delete Album</a>
 </p>
 
 </div>
